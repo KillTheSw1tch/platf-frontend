@@ -8,7 +8,6 @@ const cargoTransportTypes = {
   "21": "closed",
   "4": "isothermal",
   "19": "all_metal",
-  "10": "refrigerator",
   "1": "bus",
   "29": "passenger_bus",
   "30": "luxury_bus",
