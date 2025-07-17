@@ -1,0 +1,215 @@
+/* Глобальные настройки для прокрутки */
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+    justify-content: center;
+    align-items: flex-start; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    overflow-y: auto;   
+  }
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 10%; 
+    left: 10%; 
+    right: 10%; 
+    bottom: 10%;
+    background-image: url('https://media.discordapp.net/attachments/386551620974018591/1360266022069993695/500px-Suisse_cantons.png?ex=67fa7df4&is=67f92c74&hm=ec2ad6f69a5ec1c1b89eaba8883daab8ffba748bc95c91ddfd3faad4bfb6bc8a&=&format=webp&quality=lossless');
+    background-size: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: -1
+  }
+
+.container_reg {
+    position: relative;
+    margin: 60px auto; /* отступ сверху и снизу, по центру по горизонтали */
+    background: white;
+    padding: 3rem 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    animation: floatIn 0.8s ease-out forwards;
+    opacity: 0;
+    width: 100%;
+    max-width: 1020px;
+  }
+  
+  /* === АНИМАЦИИ === */
+  @keyframes floatIn {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  
+  @keyframes glowPulse {
+    0% { box-shadow: 0 0 0 0 rgba(59,130,246, 0.3); }
+    100% { box-shadow: 0 0 0 10px rgba(59,130,246, 0); }
+  }
+  
+  /* === ЗАГОЛОВОК === */
+  .text-center h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    color: #1e293b;
+    animation: glowPulse 2s ease infinite;
+    text-shadow: 1px 1px 0px rgba(59, 130, 246, 0.2);
+  }
+  
+  .text-center p {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin-bottom: 1rem;
+  }
+  
+  .heading-line {
+    width: 50px;
+    border-bottom: 3px solid #3b82f6;
+    margin: 1rem auto 2rem;
+  }
+
+  .section-divider {
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.6s ease both;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .section-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    color: #1e3a8a;
+  }
+  
+  /* === ПОЛЯ ВВОДА === */
+  input.form-control,
+  select.form-select {
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    background-color: #f8fafc;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+  
+  input.form-control:focus,
+  select.form-select:focus {
+    border-color: #3b82f6;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+    outline: none;
+    transform: scale(1.02);
+  }
+  
+  /* === ЧЕКБОКС И КАПЧА === */
+  .form-check {
+    font-size: 0.9rem;
+    color: #334155;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .form-check-input {
+    accent-color: #3b82f6;
+    transform: scale(1.2);
+  }
+  
+  .recaptcha-placeholder {
+    width: 100%;
+    height: 78px;
+    background-color: #f1f5f9;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-top: 1rem;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  /* === КНОПКА === */
+  
+  
+  .btn-main {
+    position: relative;
+    margin-top: auto;
+    display: inline-block;
+    overflow: hidden;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 1;
+    margin-bottom: 3rem;
+    box-shadow: 0 5px 15px rgba(0, 86, 179, 0.1);
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards 0.7s; /* Плавное появление кнопки */
+}
+.btn-main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(116, 181, 255, 0.3), rgba(152, 223, 245, 0));
+  transition: all 0.4s ease-in-out;
+  z-index: 0;
+}
+
+.btn-main::before {
+  left: 100%;
+}
+.btn-main:hover {
+  background-color: #dee2e6;
+  transform: scale(1.05);
+  color: #333;
+}
+
+.btn-main:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease-in-out;
+}
+  /* === СЕТКА === */
+  .row.g-3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .col-md-6 {
+    flex: 1 1 calc(50% - 0.5rem);
+  }
+  
+  @media (max-width: 500px) {
+    .col-md-6 {
+      flex: 1 1 100%;
+    }
+  
+    .container_reg {
+      padding: 2rem 1.5rem;
+      max-width: 95%;
+    }
+  }
+
+  

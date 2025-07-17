@@ -1,0 +1,294 @@
+/* .card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: -5px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  border: none;
+    animation: slideFadeIn 0.5s ease forwards;
+}
+.cargo-info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 140px;
+
+}
+
+.cargo-inline-row {
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: px 40px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 1%;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.card-body {
+  min-height: 100px; 
+  transition: min-height 0.2s ease;
+}
+.card-title {
+  transition: all 0.3s ease;
+  overflow-wrap: break-word;
+}
+@keyframes shine {
+  0% {
+    transform: rotate(30deg) translate(-100%, -100%);
+  }
+  100% {
+    transform: rotate(30deg) translate(100%, 100%);
+  }
+}
+.cargo-card {
+  border-left: 4px solid #007bff;
+}
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton-loader {
+  background: linear-gradient(to right, #f6f7f8 0%, #e0e0e0 50%, #f6f7f8 100%);
+  background-size: 2000px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.btn_view_details {
+  display: inline-block;
+  padding: 3px 13px;
+  background-color: rgba(0, 123, 255, 0.1);
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn_view_details {
+  background-color: rgba(2, 90, 184, 0.356);
+  transform: translateY(-2px);
+}
+.btn_view_details:active {
+  transform: scale(0.96);
+  background-color: rgba(2, 90, 184, 0.25);
+}
+
+.cargo-info-block strong {
+  margin-right: 3px;  
+
+}
+
+.edit-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100%;
+  background-color: #fff;
+  z-index: 2000;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.edit-panel.open {
+  transform: translateX(0);
+  padding: 30px;
+}
+
+.edit-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 1px;
+  font-size: 25px;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+
+  outline: none;
+  box-shadow: none;
+  line-height: 2;
+}
+
+.content-with-edit {
+  transition: margin-left 0.3s ease;
+}
+
+.content-with-edit.shifted {
+  margin-left: 400px;
+}
+
+
+.edit-close-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+
+.edit-close-btn:hover {
+  color: #000;
+  transform: scale(1.1);
+}
+
+.content-with-filter {
+  transition: margin-left 0.3s ease;
+}
+
+.content-with-filter.shifted {
+  margin-left: 400px; 
+}
+
+.cargo-info-block strong {
+  font-weight: 700;
+  color: #000;
+  font-size: 15px;
+  margin-bottom: 3px;
+}
+
+.cargo-info-block span {
+  font-size: 15px;
+  color: #222;
+}
+
+.edit-panel-left {
+  position: relative;
+  height: auto;
+  max-width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+
+.edit-panel-left.open {
+  transform: translateX(0);
+  left: 0;
+}
+
+
+.edit-slide-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1500;
+}
+
+.content-shifted {
+  margin-left: 400px; 
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.card-confirm-complete {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+
+.btn-card-action-delete {
+  background-color: #e57373;
+}
+
+.btn-card-action-delete:hover {
+  background-color: #ef5350;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 3, 3, 0.3);
+}
+
+.btn-ZaharPidor{
+  background-color: #66bb6a;
+  color: #fff;
+  border: none;
+}
+  .btn-ZaharPidor:hover {
+    background-color: #66bb6a !important;
+    color: #fff;
+    
+  }
+  .btn-ZaharPidor:active,
+.btn-ZaharPidor.active {
+  background-color: #66bb6a !important;
+  color: #fff !important;
+  
+}
+
+.btn-card-action-edit{
+  background-color: #fbc02d;
+  
+}
+.btn-card-action-edit:hover {
+  background-color: #fbc02d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 200, 0, 0.3);
+}
+.btn-card-action-comp{
+  
+  background-color: #66bb6a;
+  }
+  .btn-card-action-comp:hover {
+    background-color: #66bb6a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 100, 0.3);
+  }
+  .btn-card-action-delete,
+.btn-card-action-edit,
+.btn-card-action-comp,
+  .btn-card-action-hide {
+    padding: 3px 13px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  .btn-card-action-hide{
+    background-color: #8d8d8d;
+  }
+  
+  .btn-card-action-hide:hover {
+    background-color: #8d8d8d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  .btn-card-action-delete:active,
+.btn-card-action-edit:active,
+.btn-card-action-comp:active,
+.btn-card-action-hide:active {
+  transform: scale(0.97);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
+}
+
+.card.card-hidden {
+  background-color: #f5f5f5;
+  opacity: 0.6;
+  filter: grayscale(20%);
+  border: 1px solid #d1d1d1;
+  transition: all 0.3s ease;
+} */

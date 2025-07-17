@@ -1,0 +1,106 @@
+/* DetailsPanel.css */
+
+/* Общий контейнер панели */
+.details-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100vh;
+  background-color: white;
+  z-index: 2000;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  padding: 30px;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%);
+}
+
+.details-panel.open {
+  transform: translateX(0);
+}
+
+  
+  /* Показываем, когда открыто */
+  
+  /* Кнопка закрытия */
+  .details-panel .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #333;
+    transition: transform 0.2s ease;
+  }
+  
+  .details-panel .close-btn:hover {
+    transform: scale(1.2);
+  }
+  
+  /* Заголовок */
+  .details-panel h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+  }
+  
+  /* Элементы списка */
+  .details-panel .info-group {
+    margin-bottom: 15px;
+  }
+  
+  .details-panel .info-group strong {
+    display: inline-block;
+    width: 120px;
+    font-weight: 600;
+    color: #555;
+  }
+  
+  .details-panel .info-group span {
+    color: #000;
+  }
+  
+  /* Блок с отзывами */
+  .details-panel .reviews {
+    margin-top: 30px;
+  }
+  
+  .details-panel .reviews h4 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .details-panel .reviews ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .details-panel .reviews li {
+    background: #f7f7f7;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+  }
+  
+  /* Адаптивность */
+  @media (max-width: 600px) {
+    .details-panel {
+      width: 90%;
+    }
+  }
+
+  .company-link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  
+  

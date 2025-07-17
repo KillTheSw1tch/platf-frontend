@@ -1,0 +1,64 @@
+.my-team-page {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 40px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.my-team-container {
+  width: 100%;              /* ✅ растягивает на всю доступную ширину */
+  padding: 20px 40px;       /* ✅ приятные отступы по бокам */
+  box-sizing: border-box;
+}
+
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-buttons button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.filter-buttons button:hover {
+  background-color: #bbb;
+}
+
+.team-members {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.team-members button {
+  padding: 8px 12px;
+  background-color: #eee;
+  border: 1px solid #aaa;
+  cursor: pointer;
+}
+
+.team-members .selected {
+  background-color: #4caf50;
+  color: white;
+  border-color: #4caf50;
+}
+
+.orders {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order-card {
+  padding: 0;   /* Можно оставить или убрать, зависит от нужной отступности */
+  border: none;
+  background: transparent;
+}

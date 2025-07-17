@@ -1,0 +1,209 @@
+/* Home.css */
+.justify-content-center{
+ 
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+ 
+}
+
+/* Загальний фон сторінки */
+body {
+  background-color: #8dbcf1;
+}
+
+/* Кнопка "My orders" */
+.btn-success {
+  background-color: #1c84e3;
+  border-color: #ffffff;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(28, 132, 227, 0.4);
+}
+
+.btn-success:hover,
+.btn-success:focus {
+  background-color: #156fc4 !important;
+  border-color: #ffffff;
+  box-shadow: 0 6px 18px rgba(21, 111, 196, 0.6);
+}
+
+.btn-success:active {
+  background-color: #0f5ba5 !important;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+  background-color: #b453cc;
+  border-color: #fdfdfd;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #a7ffd6;
+  border-color: #ff0527;
+}
+
+/* Стили для таблицы */
+.cargo-table thead {
+  background-color: #ff0000;
+}
+
+/* Стили футера */
+.footer-links a {
+  color: #ff008c;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Стили для модальных окон */
+.modal-dialog {
+  max-width: 700px;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+.modal-body {
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .modal-dialog {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+
+/* Стиль для боковой панели */
+.sticky-details-panel {
+  position: sticky;
+  top: 100px;
+  flex: 0 0 340px;
+  max-width: 340px;
+  height: fit-content;
+  padding-bottom: 100px;
+
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  z-index: 10;
+}
+
+
+/* Открытие боковой панели */
+.edit-panel-left.open {
+  left: 0; 
+}
+
+/* Сдвиг контента при открытии боковой панели */
+.cargo-list.shifted {
+  margin-left: 400px; 
+  transition: margin-left 0.3s ease-in-out; 
+}
+
+@media (max-width: 768px) {
+  /* Для мобильных экранов  */
+  .cargo-list.shifted {
+    margin-left: 300px; 
+  transition: margin-left 0.3s ease-in-out; 
+  }
+}
+
+/* Боковая панель с фиксированной позицией */
+.sidebar-fix {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  width: 320px;
+}
+
+/* Главный контейнер */
+/* .main-flex-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  overflow-x: auto; 
+  width: 100%;
+} */
+
+.panel-wrapper {
+  flex: 0 0 300px;
+  min-width: 300px;
+  max-width: 300px;
+}
+
+.cards-wrapper {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+/* 📱 Даже на мобилке оставляем горизонтально */
+@media (max-width: 768px) {
+  /* .main-flex-container {
+    flex-direction: row;
+    overflow-x: hidden; 
+  } */
+
+  /* .panel-wrapper {
+    flex: 0 0 300px;
+    min-width: 300px;
+    max-width: 300px;
+    position: sticky;
+    top: 100px;
+    z-index: 10;
+    background-color: white;
+  } */
+
+  .cards-wrapper {
+    flex: 1;
+    margin-left: 20px; 
+  }
+
+  .cards-wrapper .card {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+.company-link {
+  color: #007bff;
+  text-decoration: underline;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.company-link:hover {
+  color: #0056b3;
+}
+
+.main-flex-container {
+  display: block !important;
+}
+
+.cards-wrapper {
+  width: 100%;
+}
+
+.podcontainer {
+  background-color: #fffbea;
+  border: 1px solid #ffe58f;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+

@@ -1,0 +1,928 @@
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: -5px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  border: none;
+    animation: slideFadeIn 0.5s ease forwards;
+}
+.cargo-info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 140px;
+
+}
+
+.cargo-inline-row {
+  display: grid;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: px 40px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 1%;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.card-body {
+  min-height: 100px; 
+  transition: min-height 0.2s ease;
+}
+.card-title {
+  transition: all 0.3s ease;
+  overflow-wrap: break-word;
+}
+@keyframes shine {
+  0% {
+    transform: rotate(30deg) translate(-100%, -100%);
+  }
+  100% {
+    transform: rotate(30deg) translate(100%, 100%);
+  }
+}
+.cargo-card {
+  border-left: 4px solid #007bff;
+}
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton-loader {
+  background: linear-gradient(to right, #f6f7f8 0%, #e0e0e0 50%, #f6f7f8 100%);
+  background-size: 2000px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.btn_view_details {
+  display: inline-block;
+  padding: 3px 13px;
+  background-color: rgba(0, 123, 255, 0.1);
+  color: #ffffff;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn_view_details {
+  background-color: rgba(2, 90, 184, 0.356);
+  transform: translateY(-2px);
+}
+.btn_view_details:active {
+  transform: scale(0.96);
+  background-color: rgba(2, 90, 184, 0.25);
+}
+
+.cargo-info-block strong {
+  margin-right: 3px;  
+
+}
+
+.edit-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100%;
+  background-color: #fff;
+  z-index: 2000;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.edit-panel.open {
+  transform: translateX(0);
+  padding: 30px;
+}
+
+.edit-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 1px;
+  font-size: 25px;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+
+  outline: none;
+  box-shadow: none;
+  line-height: 2;
+}
+
+.content-with-edit {
+  transition: margin-left 0.3s ease;
+}
+
+.content-with-edit.shifted {
+  margin-left: 400px;
+}
+
+
+.edit-close-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+
+.edit-close-btn:hover {
+  color: #000;
+  transform: scale(1.1);
+}
+
+.content-with-filter {
+  transition: margin-left 0.3s ease;
+}
+
+.content-with-filter.shifted {
+  margin-left: 400px; /* ширина панели редактирования */
+}
+
+.cargo-info-block strong {
+  font-weight: 700;
+  color: #000;
+  font-size: 15px;
+  margin-bottom: 3px;
+}
+
+.cargo-info-block span {
+  font-size: 15px;
+  color: #222;
+}
+
+.edit-panel-left {
+  position: relative;
+  height: auto;
+  max-width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+
+.edit-panel-left.open {
+  transform: translateX(0);
+  left: 0;
+}
+
+
+.edit-slide-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1500;
+}
+
+.content-shifted {
+  margin-left: 400px; /* сдвиг вправо, чтобы освободить слева место */
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.card-confirm-complete {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+
+.btn-card-action-delete {
+  background-color: #e57373;
+}
+
+.btn-card-action-delete:hover {
+  background-color: #ef5350;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 3, 3, 0.3);
+}
+
+.btn-ZaharPidor{
+  background-color: #66bb6a;
+  color: #fff;
+  border: none;
+}
+  .btn-ZaharPidor:hover {
+    background-color: #66bb6a !important;
+    color: #fff;
+    
+  }
+  .btn-ZaharPidor:active,
+.btn-ZaharPidor.active {
+  background-color: #66bb6a !important;
+  color: #fff !important;
+  
+}
+
+.btn-card-action-edit{
+  background-color: #fbc02d;
+  
+}
+.btn-card-action-edit:hover {
+  background-color: #fbc02d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 200, 0, 0.3);
+}
+.btn-card-action-comp{
+  
+  background-color: #66bb6a;
+  }
+  .btn-card-action-comp:hover {
+    background-color: #66bb6a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 100, 0.3);
+  }
+  .btn-card-action-delete,
+.btn-card-action-edit,
+.btn-card-action-comp,
+  .btn-card-action-hide {
+    padding: 3px 13px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  .btn-card-action-hide{
+    background-color: #8d8d8d;
+  }
+  
+  .btn-card-action-hide:hover {
+    background-color: #8d8d8d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  .btn-card-action-delete:active,
+.btn-card-action-edit:active,
+.btn-card-action-comp:active,
+.btn-card-action-hide:active {
+  transform: scale(0.97);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
+}
+
+.card.card-hidden {
+  background-color: #f5f5f5;
+  opacity: 0.6;
+  filter: grayscale(20%);
+  border: 1px solid #d1d1d1;
+  transition: all 0.3s ease;
+}
+
+/* ДРУГОЙ CSS */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    width: 50%;
+    max-width: 600px;
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .reviews-container {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-top: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .reviews-container div {
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+  }
+
+  /* .cargo-inline-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 0; 
+  } */
+  
+  
+  .cargo-info-block {
+    margin-right: 20px;
+    margin-bottom: 2px;
+    font-size: 0.9rem;
+    min-width: 100px;
+  }
+
+  .view-details-btn {
+    margin-top: 8px;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .card-body {
+    padding: 12px 16px !important; /* ✅ меньше отступов внутри */
+  }
+  
+  .btn_view_details:hover {
+    color: #0056b3; /* потемнее при наведении */
+  }
+
+  .card-button-container {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  
+  .card-button-container .btn-danger {
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .card-button-container .btn-warning {
+    background-color: #ffc107;
+    border: none;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .card-confirm-box {
+    margin-top: 10px;
+    background-color: #f8d7da;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #f5c6cb;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+  
+  .card-confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .card-edit-form {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 15px;
+  }
+
+  .cargo-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+  }
+  
+  .card-button-container {
+    display: flex;
+    gap: 8px;
+  }
+
+  .card-confirm-buttons .btn {
+    font-size: 0.9rem;
+    padding: 3px 6px;
+    min-width: 40px;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .card-confirm-box p {
+    font-size: .95rem;
+    margin-bottom: 8px;
+    line-height: 1.;
+  }
+
+  .btn-card-action {
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    background-color: rgba(0, 123, 255, 0.1);
+    color: #0056b3;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  
+  .btn-card-action:hover {
+    background-color: rgba(0, 123, 255, 0.2);
+    transform: translateY(-1px);
+  }
+
+  .cargo-hidden-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ffc107;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.75rem;
+    color: #212529;
+    z-index: 10;
+  }
+
+  .content-with-edit-panel {
+    transition: margin-left 0.3s ease-in-out;
+    margin-left: 400px; /* ширина панели редактирования */
+  }
+
+  .company-logo-small {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: white;
+  }
+  
+  .company-logo-small {
+    width: 24px;             /* уменьшено */
+    height: 24px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .company-link {
+    color: #007bff;          /* Bootstrap-синий */
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .company-link:hover {
+    text-decoration: underline;
+  }
+
+  .details-box {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-top: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    position: relative;
+  }
+  
+  .close-details-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 22px;
+    border: none;
+    background: transparent;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .close-details-btn:hover {
+    color: #000;
+  }
+
+  .cancel-request-inline {
+    margin-top: 1rem;
+  }
+  
+  .cancel-btn {
+    background: none;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.2s;
+  }
+  .cancel-btn:hover {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .cancel-confirm-box {
+    margin-top: 0.5rem;
+    padding: 10px;
+    background: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 4px;
+  }
+  
+  .cancel-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  
+  .yes-btn, .no-btn {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+  .yes-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  .no-btn {
+    background-color: #6c757d;
+    color: white;
+  }
+  .btn-cancel-order {
+    background-color: #dc3545;
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .btn-cancel-order:hover {
+    background-color: #c82333;
+  }
+
+  .btn_accept_custom {
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    background: none;
+    border: none;
+    color: #28a745; /* зелёный */
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 2px;
+    transition: color 0.2s ease;
+  }
+  
+  .btn_accept_custom:hover {
+    color: #1e7e34; /* темнее при наведении */
+  }
+  
+  .btn_reject_custom {
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    background: none;
+    border: none;
+    color: #dc3545; /* красный */
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 2px;
+    transition: color 0.2s ease;
+  }
+  
+  .btn_reject_custom:hover {
+    color: #a71d2a; /* темнее при наведении */
+  }
+
+  .request-wrapper {
+    background-color: #f5f5f5; /* светло-серый фон */
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 24px;
+    transition: background-color 0.3s ease;
+  }
+
+  .cargo-inline-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cargo-inline-row .cargo-info-block {
+  margin-right: 10px;
+}
+
+.cargo-inline-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap; /* ❗ не переносить на новую строку */
+  padding-right: 8px;
+}
+
+.details-layout-table {
+  width: 100%;
+  border-spacing: 20px;
+}
+
+.details-layout-table td {
+  vertical-align: top;
+  width: 33%;
+  padding: 5px 20px; 
+}
+
+.details-left, .details-center, .details-actions {
+  font-size: 0.95rem;
+}
+
+.company-link {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.notes-box {
+  margin-top: 8px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  min-height: 100px;
+}
+
+.dropdown-menu-box {
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  text-align: center;
+
+  width: 300px; /* ✅ Вот это регулирует ширину */
+}
+
+.dropdown-item {
+  display: block;
+  padding: 4px 8px;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-view-route {
+  margin-top: 10px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid #666;
+  cursor: pointer;
+}
+
+.details-left div,
+.details-center div,
+.details-actions div {
+  margin-bottom: 6px; /* или 8px для больше отступа */
+  line-height: 1.6; /* это делает текст чуть выше */
+}
+
+.contact-subtable {
+  margin-top: 10px;
+  border-spacing: 4px 6px; /* вертикальные отступы между строками */
+  font-size: 0.92rem;
+  width: 100%;
+}
+
+.contact-subtable td {
+  padding: 0;
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.8; /* Увеличивает расстояние между строками */
+}
+
+.dropdown-toggle {
+  padding: 8px 16px; 
+  min-width: 300px; 
+  text-align: center; 
+  border-radius: 8px;
+}
+
+.status-label {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.status-label.booked {
+  background-color: #007bff;
+  color: white;
+}
+
+.status-label.rejected {
+  background-color: #dc3545;
+  color: white;
+}
+
+.status-label.in-process {
+  background-color: #ffc107;
+  color: black;
+}
+
+.status-label.finished {
+  background-color: #20c997; /* бирюзовый */
+  color: white;
+  border: 1px solid #198754;
+}
+
+.custom-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-modal {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.custom-close-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 24px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.modal-form label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.modal-form input,
+.modal-form select,
+.modal-form textarea {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+}
+
+.btn-save {
+  margin-top: 15px;
+  width: 100%;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+} 
+
+.btn-card-action-review {
+  background-color: #ffca28; /* ярко-жёлтый */
+  color: #000; /* чёрный текст */
+  padding: 3px 13px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  font-weight: 500;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-card-action-review:hover {
+  background-color: #ffb300;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 193, 7, 0.3);
+}
+
+.btn-card-action-review:active {
+  transform: scale(0.97);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
+}
+
+.review-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.stars {
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+.star {
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.2s;
+}
+
+.star.active {
+  color: gold;
+}
+
+textarea {
+  width: 100%;
+  height: 80px;
+  margin-top: 10px;
+  resize: none;
+  padding: 8px;
+}
+
+.submit-button {
+  margin-top: 12px;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+}
+
+
+

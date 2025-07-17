@@ -1,0 +1,128 @@
+/* Основной flex контейнер */
+.main-flex-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin-top: 0;         /* убираем лишний отступ сверху */
+  padding-top: 0;
+}
+
+/* Левая панель (детали) */
+.panel-wrapper {
+  flex: 0 0 340px;
+  max-width: 340px;
+  min-width: 340px;
+  position: sticky;
+  top: 100px;             /* расстояние от верха */
+  height: calc(100vh - 120px); /* заполняет почти всю высоту */
+  overflow-y: auto;
+  z-index: 100;
+}
+
+/* Правая колонка с карточками */
+.cards-wrapper {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 0;        /* убираем отступ, чтобы не было смещения */
+  padding-top: 0;
+}
+
+.cards-wrapper .card {
+  width: 100%;
+}
+
+/* Сама панель (внутри wrapper) */
+.sticky-details-panel {
+  position: sticky;
+  top: 100px;
+  flex: 0 0 340px;
+  max-width: 340px;
+  height: fit-content;
+  padding-bottom: 100px;
+
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  z-index: 10;
+}
+
+.order-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.order-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.order-toggle-btn {
+  background-color: white;
+  color: #007bff;
+  border: 1px solid #007bff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.order-toggle-btn.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.order-toggle-btn:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+.order-search-box {
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+.order-search-label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.order-search-input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.order-search-row {
+  display: flex;
+  gap: 8px;
+}
+
+.order-search-btn {
+  padding: 8px 14px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.order-search-btn:hover {
+  background-color: #0056b3;
+}
+
