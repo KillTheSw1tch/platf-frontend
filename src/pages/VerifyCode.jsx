@@ -32,7 +32,7 @@ function VerifyCode() {
     }
 
     try {
-      const response = await fetch(`${API_BASE}/user/verify/`, {
+      const response = await fetch(`${API_BASE}api/user/verify/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
