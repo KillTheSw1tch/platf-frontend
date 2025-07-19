@@ -97,7 +97,7 @@ function RegistrationPage() {
     };
     console.log("Payload:", JSON.stringify(payload, null, 2));
     try {
-      const response = await fetch(import.meta.env.VITE_API_URL + '/user/register/', {
+      const response = await fetch(import.meta.env.VITE_API_URL + 'api/user/register/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
