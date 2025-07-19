@@ -11,8 +11,7 @@ import { search } from 'swiss-zipcodes';
 
 import { useLocation } from 'react-router-dom';
 
-import { getNotificationStatus, setNotificationStatus } from '../api';
-
+import api, { getNotificationStatus } from '../api';
 
 
 const UserProfile = () => {
@@ -58,7 +57,7 @@ const UserProfile = () => {
       return;
     }
 
-    fetch('http://127.0.0.1:8000/api/user/profile/', {
+    fetch(`${import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api'}/user/profile/`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -77,7 +76,7 @@ const UserProfile = () => {
           setZipCanton(data.profile.canton || '');
 
           // Фото компании
-          axios.get('http://127.0.0.1:8000/api/company/photo/', {
+          api.get('/company/photo/', {
             headers: { Authorization: `Bearer ${token}` }
           }).then(res => {
             const photoUrl = res.data.photo_url;

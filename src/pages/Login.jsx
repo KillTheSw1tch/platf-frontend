@@ -2,8 +2,8 @@
   // import 'bootstrap/dist/css/bootstrap.min.css';
   import '../styles/loginPage.css';
   import { useTranslation } from 'react-i18next';
-  import axios from 'axios';
   import { useNavigate } from 'react-router-dom';
+  import api from '../api';
 
   function LoginPage() {
     const { t } = useTranslation();
@@ -16,7 +16,7 @@
       e.preventDefault();
     
       try {
-        const response = await axios.post('http://127.0.0.1:8000/api/token/', {
+        const response = await api.post('/token/', {
           email,
           password,
         });
@@ -36,7 +36,7 @@
         localStorage.setItem('refreshToken', refresh);
 
         // 🧠 Загружаем профиль
-        const profileRes = await axios.get('http://127.0.0.1:8000/api/user/profile/', {
+        const profileRes = await api.get('/user/profile/', {
           headers: { Authorization: `Bearer ${access}` }
         });
 
@@ -52,7 +52,7 @@
         localStorage.setItem('userEmail', profile.email || ''); // <-- правильный email
 
         // 🔍 Проверяем статус документов + company_data
-        const statusRes = await axios.get("http://127.0.0.1:8000/api/company/check-approval/", {
+        const statusRes = await api.get('/company/check-approval/', {
           headers: { Authorization: `Bearer ${access}` }
         });
 

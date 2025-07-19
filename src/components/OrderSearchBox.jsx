@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useTranslation } from 'react-i18next';
+import api from '../api';
 
 function OrderSearchBox({ onResult }) {
   const { t } = useTranslation();
@@ -16,7 +16,7 @@ function OrderSearchBox({ onResult }) {
 
     try {
       const token = localStorage.getItem('authToken');
-      const res = await axios.get(`http://127.0.0.1:8000/api/find-order/?number=${number}`, {
+      const res = await api.get(`/find-order/?number=${number}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

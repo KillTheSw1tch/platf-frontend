@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
 import { search } from 'swiss-zipcodes';
@@ -7,6 +6,7 @@ import '../styles/TruckForm.css';
 import { useTranslation } from 'react-i18next';
 import i18n from '../i18n';
 import { getToken } from '../components/getToken';
+import api from '../api';
 
 function TruckPostingForm() {
   const { t } = useTranslation();
@@ -190,7 +190,7 @@ const handleZipChange = (e, fieldPrefix) => {
     const token = getToken();
 
     try {
-        const response = await axios.post('http://127.0.0.1:8000/api/trucks/', formattedData, {
+        const response = await api.post('/trucks/', formattedData, {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': token ? `Bearer ${token}` : ''  // Додати токен якщо він існує

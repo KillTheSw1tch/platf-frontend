@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import axios from 'axios';
 import '../styles/CompanyOverview.css';
 import { getToken } from '../components/getToken';
+import api from '../api';
 
 import AddTeamMember from '../components/AddTeamMember';
 
@@ -39,7 +39,7 @@ const CompanyOverview = () => {
   const fetchCompanyData = async () => {
     try {
       const token = getToken();
-      const res = await axios.get('http://127.0.0.1:8000/api/company/check-approval/', {
+      const res = await api.get('/company/check-approval/', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -80,10 +80,10 @@ const CompanyOverview = () => {
 
       // Загружаем грузы и транспорт
       const [cargoRes, vehicleRes] = await Promise.all([
-        axios.get('http://127.0.0.1:8000/api/cargo/', {
+        api.get('/cargo/', {
           headers: { Authorization: `Bearer ${token}` },
         }),
-        axios.get('http://127.0.0.1:8000/api/trucks/', {
+        api.get('/trucks/', {
           headers: { Authorization: `Bearer ${token}` },
         }),
       ]);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { getToken } from './getToken';
 import { useTranslation } from 'react-i18next';
+import api from '../api';
 
 const AddTeamMember = () => {
   const { t } = useTranslation();
@@ -39,7 +39,7 @@ const AddTeamMember = () => {
         company_code: company.code
       };
 
-      const response = await axios.post('http://127.0.0.1:8000/api/team/add-member/', payload, {
+      const response = await api.post('/team/add-member/', payload, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

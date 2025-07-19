@@ -20,6 +20,7 @@ function VerifyCode() {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
   const { updateAuthStatus } = useOutletContext();
+  const API_BASE = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000/api';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +32,7 @@ function VerifyCode() {
     }
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/user/verify/', {
+      const response = await fetch(`${API_BASE}/user/verify/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

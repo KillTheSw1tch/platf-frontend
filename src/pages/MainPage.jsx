@@ -4,13 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import i18n from '../i18n';
-import axios from 'axios';
 import CargoCard from '../components/CargoCard';
 import VehicleCard from '../components/vehicleCard';
 import DetailsPanel from '../components/DetailsPanel';
 import { getToken } from '../components/getToken';
 
 import getDocumentStatus from '../components/utils/getDocumentStatus';
+import api from '../api';
 
 
 function HomePage() {
@@ -31,9 +31,7 @@ function HomePage() {
 
   const [filter, setFilter] = useState("all");
 
-  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [openedDetailsCardId, setOpenedDetailsCardId] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     const token = getToken();
@@ -46,22 +44,21 @@ function HomePage() {
       i18n.changeLanguage(savedLanguage);
     }
 
-    axios.get('http://127.0.0.1:8000/api/main-cargo/')
+    api.get('/main-cargo/')
       .then(res => setMainCargos(res.data.filter(c => !c.hidden)));
 
-    axios.get('http://127.0.0.1:8000/api/available-cargo/')
+    api.get('/available-cargo/')
       .then(res => setAvailableCargos(res.data.filter(c => !c.hidden)));
 
-    axios.get('http://127.0.0.1:8000/api/main-truck/')
+    api.get('/main-truck/')
       .then(res => setMainVehicles(res.data));
 
-    axios.get('http://127.0.0.1:8000/api/available-truck/')
+    api.get('/available-truck/')
       .then(res => setAvailableVehicles(res.data));
 
   }, []);
 
   useEffect(() => {
-    setIsDetailsOpen(false);
     setOpenedDetailsCardId(null);
   }, [filter]);
 
@@ -163,7 +160,7 @@ function HomePage() {
                       <CargoCard
                         key={cargo.id}
                         cargo={cargo}
-                        setIsDetailsOpen={setIsDetailsOpen}
+                        setIsDetailsOpen={() => {}}
                         openedDetailsCardId={openedDetailsCardId}
                         setOpenedDetailsCardId={setOpenedDetailsCardId}
                       />
@@ -180,10 +177,9 @@ function HomePage() {
                       <VehicleCard
                         key={vehicle.id}
                         vehicle={vehicle}
-                        setIsDetailsOpen={setIsDetailsOpen}
+                        setIsDetailsOpen={() => {}}
                         openedDetailsCardId={openedDetailsCardId}
                         setOpenedDetailsCardId={setOpenedDetailsCardId}
-                        setIsEditing={setIsEditing}
                       />
                     )) : (
                       <div className="text-muted">{t("no_vehicles_found")}</div>
@@ -198,7 +194,7 @@ function HomePage() {
                         <CargoCard
                           key={cargo.id}
                           cargo={cargo}
-                          setIsDetailsOpen={setIsDetailsOpen}
+                          setIsDetailsOpen={() => {}}
                           openedDetailsCardId={openedDetailsCardId}
                           setOpenedDetailsCardId={setOpenedDetailsCardId}
                         />
@@ -212,7 +208,7 @@ function HomePage() {
                         <VehicleCard
                           key={vehicle.id}
                           vehicle={vehicle}
-                          setIsDetailsOpen={setIsDetailsOpen}
+                          setIsDetailsOpen={() => {}}
                           openedDetailsCardId={openedDetailsCardId}
                           setOpenedDetailsCardId={setOpenedDetailsCardId}
                         />

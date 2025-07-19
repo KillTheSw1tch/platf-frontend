@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api';
 
 const Verify2FA = () => {
   const [code, setCode] = useState('');
@@ -16,7 +16,7 @@ const Verify2FA = () => {
     e.preventDefault();
 
     try {
-        const response = await axios.post('http://127.0.0.1:8000/api/verify-2fa-login/', {
+        const response = await api.post('/verify-2fa-login/', {
         email,
         code
         });
@@ -29,7 +29,7 @@ const Verify2FA = () => {
         localStorage.setItem('refreshToken', refresh);
 
         // 🧠 Загружаем профиль
-        const profileRes = await axios.get('http://127.0.0.1:8000/api/user/profile/', {
+        const profileRes = await api.get('/user/profile/', {
         headers: { Authorization: `Bearer ${access}` }
         });
 
@@ -40,7 +40,7 @@ const Verify2FA = () => {
         localStorage.setItem('userEmail', profile.email || '');
 
         // 🔍 Проверяем статус документов + company_data
-        const statusRes = await axios.get("http://127.0.0.1:8000/api/company/check-approval/", {
+        const statusRes = await api.get('/company/check-approval/', {
         headers: { Authorization: `Bearer ${access}` }
         });
 
