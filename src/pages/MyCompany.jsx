@@ -22,6 +22,8 @@ function MyCompany() {
 
 
   const navigate = useNavigate();
+  const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
 
   const formatFullName = (rawName) => {
     if (!rawName) return '';
@@ -41,7 +43,7 @@ function MyCompany() {
 
     if (!token) return;
 
-    fetch("http://127.0.0.1:8000/api/company/check-approval/", {
+    fetch(`${API_BASE}/api/company/check-approval/`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -120,7 +122,7 @@ function MyCompany() {
       return;
     }
 
-    fetch("http://127.0.0.1:8000/api/validate-company-code/", {
+    fetch(`${API_BASE}/api/validate-company-code/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -304,7 +306,7 @@ function MyCompany() {
 
               try {
                 // 🔐 СНАЧАЛА Регистрируем компанию
-                const registerRes = await fetch("http://127.0.0.1:8000/api/register-company/", {
+                const registerRes = await fetch(`${API_BASE}/api/register-company/`, {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",

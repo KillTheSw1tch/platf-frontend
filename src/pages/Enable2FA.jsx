@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; // ⬅️ добавили
+import api from '../api';
 
 const Enable2FA = () => {
   const [qrCode, setQrCode] = useState("");
@@ -16,7 +17,7 @@ const Enable2FA = () => {
         const accessToken = localStorage.getItem("accessToken"); // ✅ правильно
 
 
-        const response = await axios.get("http://localhost:8000/api/user/generate-2fa/", {
+        const response = await api.get('/user/generate-2fa/', {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
 
@@ -28,7 +29,7 @@ const Enable2FA = () => {
           try {
             const refreshToken = localStorage.getItem("refreshToken");
 
-            const refreshResponse = await axios.post("http://localhost:8000/api/token/refresh/", {
+            const refreshResponse = await api.post('/token/refresh/', {
               refresh: refreshToken,
             });
 
@@ -36,7 +37,7 @@ const Enable2FA = () => {
             localStorage.setItem("accessToken", newAccessToken); // ✅ правильно
 
 
-            const retryResponse = await axios.get("http://localhost:8000/api/user/generate-2fa/", {
+            const retryResponse = await api.get('/user/generate-2fa/', {
               headers: { Authorization: `Bearer ${newAccessToken}` },
             });
 
@@ -64,14 +65,14 @@ const Enable2FA = () => {
 
 
       // ✅ Отправляем код 2FA на верификацию
-      await axios.post(
-        "http://localhost:8000/api/user/verify-2fa/",
+      await api.post(
+        '/user/verify-2fa/',
         { code },
         { headers: { Authorization: `Bearer ${accessToken}` } }
       );
 
       // ✅ Обновляем данные профиля после успешной верификации
-      const profileResponse = await axios.get("http://localhost:8000/api/user/profile/", {
+      const profileResponse = await api.get('/user/profile/', {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
 
@@ -90,7 +91,7 @@ const Enable2FA = () => {
         try {
           const refreshToken = localStorage.getItem("refreshToken");
 
-          const refreshResponse = await axios.post("http://localhost:8000/api/token/refresh/", {
+          const refreshResponse = await api.post('/token/refresh/', {
             refresh: refreshToken,
           });
 
@@ -98,13 +99,13 @@ const Enable2FA = () => {
           localStorage.setItem("accessToken", newAccessToken); // ✅ правильно
 
 
-          await axios.post(
-            "http://localhost:8000/api/user/verify-2fa/",
+          await api.post(
+            '/user/verify-2fa/',
             { code },
             { headers: { Authorization: `Bearer ${newAccessToken}` } }
           );
 
-          const profileResponse = await axios.get("http://localhost:8000/api/user/profile/", {
+          const profileResponse = await api.get('/user/profile/', {
             headers: { Authorization: `Bearer ${newAccessToken}` },
           });
 

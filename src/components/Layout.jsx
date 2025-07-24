@@ -11,10 +11,12 @@ function Layout() {
 
   const navigate = useNavigate();
 
+  const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
   const updateAuthStatus = () => {
     const token = getToken();
     if (token) {
-      fetch('http://127.0.0.1:8000/api/user/profile/', {
+      fetch(`${API_BASE}/api/user/profile/`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
