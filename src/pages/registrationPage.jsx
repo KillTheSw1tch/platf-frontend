@@ -98,7 +98,7 @@ function RegistrationPage() {
     };
     console.log("Payload:", JSON.stringify(payload, null, 2));
     try {
-      const response = await fetch(`${API_BASE}/api/user/register/`, {
+      const response = await fetch(`${API_BASE}api/user/register/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

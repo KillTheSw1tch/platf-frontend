@@ -43,7 +43,7 @@ function MyCompany() {
 
     if (!token) return;
 
-    fetch(`${API_BASE}/api/company/check-approval/`, {
+    fetch(`${API_BASE}api/company/check-approval/`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -122,7 +122,7 @@ function MyCompany() {
       return;
     }
 
-    fetch(`${API_BASE}/api/validate-company-code/`, {
+    fetch(`${API_BASE}api/validate-company-code/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -306,7 +306,7 @@ function MyCompany() {
 
               try {
                 // 🔐 СНАЧАЛА Регистрируем компанию
-                const registerRes = await fetch(`${API_BASE}/api/register-company/`, {
+                const registerRes = await fetch(`${API_BASE}api/register-company/`, {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",

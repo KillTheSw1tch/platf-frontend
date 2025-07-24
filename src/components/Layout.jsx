@@ -16,7 +16,7 @@ function Layout() {
   const updateAuthStatus = () => {
     const token = getToken();
     if (token) {
-      fetch(`${API_BASE}/api/user/profile/`, {
+      fetch(`${API_BASE}api/user/profile/`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
